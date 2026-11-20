@@ -487,7 +487,7 @@ const PRESETS = [
 
 /* ============================== state ============================== */
 const S = {
-  preset: "auto", frame: "foil", name: "", caption: "", zoom: 1, posX: 0, posY: 0,
+  preset: "auto", frame: "foil", name: "", caption: "", zoom: 1, posX: 0, posY: 0, fit: "cover",
   pattern: "auto", metal: "auto", signature: "auto", holo: 1, foilAmt: 1, glare: 1, sparkle: 1, particles: "auto", mood: null, moodAcc: null,
   autoFloat: !matchMedia("(prefers-reduced-motion: reduce)").matches
 };
@@ -1118,7 +1118,7 @@ function roundRect(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); 
 function foilGrad(ctx, x, y, w, h, metal) { const g = ctx.createLinearGradient(x, y, x + w, y + h); METALS[metal].grad.forEach((c, i, a) => g.addColorStop(i / (a.length - 1), c)); return g; }
 function artTransform(rect) {
   const iw = srcImg.width, ih = srcImg.height;
-  const s = Math.max(rect.w / iw, rect.h / ih) * S.zoom;
+  const s = (S.fit === "contain" ? Math.min(rect.w / iw, rect.h / ih) * .9 : Math.max(rect.w / iw, rect.h / ih)) * S.zoom;
   const dw = iw * s, dh = ih * s;
   const ox = rect.x + (rect.w - dw) / 2 - S.posX * (dw - rect.w) / 2 * (S.zoom > 1 || dw > rect.w ? 1 : 0);
   const oy = rect.y + (rect.h - dh) / 2 - S.posY * (dh - rect.h) / 2 * (S.zoom > 1 || dh > rect.h ? 1 : 0);
@@ -1126,8 +1126,21 @@ function artTransform(rect) {
 }
 function drawArt(ctx, mctx, rect, r) {
   const tr = artTransform(rect);
-  ctx.save(); roundRect(ctx, rect.x, rect.y, rect.w, rect.h, r); ctx.clip(); ctx.drawImage(srcImg, tr.x, tr.y, tr.w, tr.h); ctx.restore();
+  ctx.save(); roundRect(ctx, rect.x, rect.y, rect.w, rect.h, r); ctx.clip();
+  if (S.fit === "contain") artBackdrop(ctx, rect);
+  ctx.drawImage(srcImg, tr.x, tr.y, tr.w, tr.h); ctx.restore();
   if (hasSubject && mctx) { mctx.save(); roundRect(mctx, rect.x, rect.y, rect.w, rect.h, r); mctx.clip(); mctx.drawImage(subjCanvas, tr.x, tr.y, tr.w, tr.h); mctx.restore(); }
+}
+// backdrop behind a transparent picture: a soft spotlight in the picture's own dark tone
+function artBackdrop(ctx, rect) {
+  const d = auto.dom, c0 = d.map(v => Math.round(Math.min(255, v * 255 * .9 + 30))), c1 = d.map(v => Math.round(v * 255 * .18 + 6));
+  const g = ctx.createRadialGradient(rect.x + rect.w / 2, rect.y + rect.h * .42, 0, rect.x + rect.w / 2, rect.y + rect.h * .42, Math.max(rect.w, rect.h) * .7);
+  g.addColorStop(0, `rgb(${c0})`); g.addColorStop(1, `rgb(${c1})`); ctx.fillStyle = g; ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
+}
+function hasAlpha(c) {
+  const { w, h, d } = pixelsOf(c, 128); let n = 0;
+  for (let i = 3; i < d.length; i += 4) if (d[i] < 250) n++;
+  return n > w * h * .04;
 }
 function fitText(ctx, text, maxW, size, font) { let s = size; ctx.font = `${s}px ${font}`; while (ctx.measureText(text).width > maxW && s > 8) { s -= 1; ctx.font = `${s}px ${font}`; } return s; }
 function noisePaper(ctx, w, h, base, amt) {
@@ -1169,6 +1182,7 @@ function composeCard() {
   };
 
   if (S.frame === "original") {
+    if (S.fit === "contain") artBackdrop(ctx, { x: 0, y: 0, w: W, h: H });
     ctx.drawImage(srcImg, 0, 0, W, H);
     if (hasSubject) mctx.drawImage(subjCanvas, 0, 0, W, H);
   } else if (S.frame === "foil") {
@@ -1282,6 +1296,7 @@ async function loadFile(file) {
     catch (e) { bmp = await new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = URL.createObjectURL(file); }); }
     const c = toCanvas(bmp);
     const a = c.height / c.width;
+    S.fit = hasAlpha(c) ? "contain" : "cover";
     // a picture that already looks like a card keeps its own frame; a loose picture gets a foil border
     const looksLikeCard = a > 1.3 && a < 1.6;
     if (isSample || S.frame === "original") { S.frame = looksLikeCard ? "original" : "foil"; $("frame").value = S.frame; }
@@ -1302,7 +1317,7 @@ async function loadSample() {
   S.name = t("sampleName"); S.caption = t("sampleCap"); $("cname").value = S.name; $("ccap").value = S.caption;
   S.zoom = 1; S.posX = 0; S.posY = 0; syncRanges(); updateFrameUI();
   const [im, mk] = await Promise.all([loadImg(SAMPLE_SRC), loadImg(SAMPLE_MASK)]);
-  srcImg = toCanvas(im); isSample = true; auto = analyzeColors(srcImg); resetSubject();
+  srcImg = toCanvas(im); isSample = true; S.fit = "cover"; auto = analyzeColors(srcImg); resetSubject();
   const sx = subjCanvas.getContext("2d"); sx.drawImage(mk, 0, 0, subjCanvas.width, subjCanvas.height);
   const id = sx.getImageData(0, 0, subjCanvas.width, subjCanvas.height);
   for (let i = 0; i < id.data.length; i += 4) { const v = id.data[i]; id.data[i] = id.data[i + 1] = id.data[i + 2] = 255; id.data[i + 3] = v; }
