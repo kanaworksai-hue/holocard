@@ -275,6 +275,8 @@ body.panel-open .fab { opacity: 0; pointer-events: none; }
       <h2 data-i18n="secMotion">Motion</h2>
       <button class="btn" id="gyroBtn" data-i18n="gyro">Use phone tilt (gyroscope)</button>
       <label class="switch"><span data-i18n="autoFloat">Auto float when idle</span><input type="checkbox" id="autoFloat" checked></label>
+      <div class="rng"><span data-i18n="motionSpeed">Motion speed</span><input type="range" id="motionSpeed" min="0.25" max="2" step="0.05" value="1"><output id="motionSpeedV">1.00×</output></div>
+      <div class="rng"><span data-i18n="fxSpeed">Sparkle speed</span><input type="range" id="fxSpeed" min="0.25" max="2" step="0.05" value="1"><output id="fxSpeedV">1.00×</output></div>
       <p class="hint" data-i18n="motionHint">Desktop: move the mouse over the card. Phone: drag the card, or turn on phone tilt.</p>
     </section>
 
@@ -438,6 +440,7 @@ I18N.pt = {"tagline": "Transforme qualquer imagem em um card holográfico", "con
 I18N.es = {"tagline": "Convierte cualquier imagen en una carta holográfica", "controls": "Ajustes", "hideUI": "Ocultar controles (H)", "showUI": "Mostrar controles", "collapse": "Contraer", "secImage": "Imagen", "upload": "Subir imagen", "sample": "Ejemplo", "dropHint": "También puedes arrastrar o pegar una imagen. No sale de tu dispositivo.", "secStyle": "Estilos predefinidos", "secFrame": "Marco", "frameStyle": "Estilo de marco", "fr_original": "La imagen es la carta", "fr_foil": "Borde metalizado", "fr_fullart": "Arte completo", "fr_gallery": "Paspartú de galería", "fr_graded": "Funda de gradeo", "cardName": "Nombre de la carta", "caption": "Subtítulo", "zoom": "Zoom", "posX": "Izquierda–derecha", "posY": "Arriba–abajo", "secHolo": "Efecto holográfico", "pattern": "Patrón holográfico", "auto": "Automático", "pt_cosmos": "Cosmos", "pt_sunburst": "Rayos de sol", "pt_silk": "Ondas de seda", "pt_crystal": "Cristal", "pt_plain": "Arcoíris simple", "metal": "Tono metálico", "mt_gold": "Dorado", "mt_silver": "Plata hielo", "mt_prism": "Prisma violeta-dorado", "mt_rose": "Oro rosa", "signature": "Efecto especial", "sg_auto": "Auto: pulso en la luz más brillante", "sg_pulse": "Estrella pulsante + anillo", "sg_streak": "Destello de luz", "sg_off": "Desactivado", "rainbow": "Arcoíris", "foilAmt": "Metalizado", "glare": "Reflejo", "sparkle": "Brillo", "particles": "Partículas flotantes", "secSubject": "Personaje (opcional)", "subjHint": "Marca al personaje principal para que el arcoíris no lo cubra. Si lo omites, el arcoíris se suaviza en las zonas claras.", "markSubject": "Marcar personaje", "clear": "Borrar", "subjNone": "Sin marcar. Zonas claras suavizadas.", "subjOn": "Personaje marcado", "secMotion": "Movimiento", "gyro": "Usar la inclinación del móvil (giroscopio)", "gyroOn": "Inclinación activada. Toca para desactivar.", "autoFloat": "Flotar solo en reposo", "motionHint": "En el ordenador: mueve el ratón sobre la carta. En el móvil: arrastra la carta o activa la inclinación.", "gyroNone": "Aquí no llegan datos del sensor de movimiento. Abre esta página directamente en el navegador del móvil (HTTPS) para usar la inclinación.", "gyroDenied": "No se permitió el acceso al movimiento. Aún puedes arrastrar la carta.", "secExport": "Exportar", "gifWidth": "Ancho del GIF", "mp4Width": "Ancho del MP4", "exportGif": "Exportar GIF", "exportMp4": "Exportar MP4", "exportHint": "GIF: 48 fotogramas, bucle continuo, 256 colores con tramado. MP4: 60 fps, dos bucles continuos.", "rendering": "Renderizando fotogramas… {p}%", "encoding": "Codificando… {p}%", "saved": "{f} guardado", "exportFail": "Error al exportar: {m}", "mp4No": "Para exportar MP4 necesitas Chrome, Edge o Safari recientes.", "dropHere": "Suelta la imagen para cargarla", "loadFail": "No se pudo leer esa imagen. Prueba con JPG, PNG o WebP.", "loaded": "Imagen cargada", "editorHint": "Toca al personaje para seleccionar colores parecidos y retoca con el pincel. La zona roja queda sin arcoíris ni metalizado.", "cancel": "Cancelar", "done": "Listo", "tWand": "Tocar para seleccionar", "tBrush": "Pincel", "tErase": "Borrador", "brushSize": "Tamaño", "undo": "Deshacer", "p_auto": "Automático", "p_auto_d": "Se adapta a tu imagen", "p_cosmos": "Cosmos SAR", "p_cosmos_d": "Burbujas estelares, dorado", "p_sun": "Rayos de sol UR", "p_sun_d": "Rayos, mucho dorado", "noWebGL": "Esta página necesita WebGL. Prueba con un Chrome, Safari, Edge o Firefox reciente.", "ctaQ": "¿Quieres más?", "ctaT": "Sigue a @KanaWorks_AI en X para nuevas herramientas y efectos", "ctaB": "Seguir", "p_rainbow": "Rainbow Rare", "p_rainbow_d": "Arcoíris pastel en toda la carta", "p_shatter": "Cristal roto", "p_shatter_d": "Los fragmentos brillan al inclinar", "p_kintsugi": "Kintsugi", "p_kintsugi_d": "Vetas y pan de oro", "p_thunder": "Relámpago", "p_thunder_d": "Rayos que cruzan la carta", "p_aurora": "Aurora", "p_aurora_d": "Cortinas de luz en movimiento", "p_neon": "Neón glitch", "p_neon_d": "Cuadrícula, scanlines y glitches", "p_inferno": "Infierno", "p_inferno_d": "Llamas y brasas que suben", "p_frost": "Escarcha", "p_frost_d": "Cristales de hielo y nieve", "p_sakura": "Lluvia de sakura", "p_sakura_d": "Flores metalizadas y pétalos cayendo", "mt_neon": "Neón cian-magenta", "mt_copper": "Cobre ardiente", "mt_obsidian": "Cromo negro", "ps_auto": "Según el efecto", "ps_dots": "Puntos de luz", "ps_petals": "Pétalos", "ps_snow": "Nieve", "ps_embers": "Brasas", "ps_sparks": "Chispas", "ps_bokeh": "Bokeh", "ps_off": "Desactivado", "sampleName": "MOONLIT DUEL", "sampleCap": "KanaWorks_AI ★ SAR"};
 for (const [lg, [h, sh]] of Object.entries({"en": ["Hide UI", "Show UI"], "ja": ["UIを隠す", "UIを表示"], "zh": ["隐藏界面", "显示界面"], "ko": ["UI 숨기기", "UI 표시"], "es": ["Ocultar UI", "Mostrar UI"], "pt": ["Ocultar UI", "Mostrar UI"]})) Object.assign(I18N[lg], { hideShort: h, showShort: sh });
 for (const [lg, v] of Object.entries({"en": ["Grade label", "Grade", "Serial no.", "Rarity mark"], "ja": ["グレード表記", "グレード", "シリアル番号", "レアリティ記号"], "zh": ["评级文字", "评分", "编号", "稀有度标记"], "ko": ["등급 문구", "등급", "일련번호", "레어도 표시"], "es": ["Texto de grado", "Grado", "N.º de serie", "Marca de rareza"], "pt": ["Texto da nota", "Nota", "Nº de série", "Marca de raridade"]})) Object.assign(I18N[lg], { gradeText: v[0], gradeNum: v[1], serial: v[2], rarity: v[3] });
+for (const [lg, v] of Object.entries({"en": ["Motion speed", "Sparkle speed", "GIF: seamless loop, 256 colors with dithering. MP4: 60 fps seamless loop. Loop length follows the speed settings."], "ja": ["動きの速さ", "きらめきの速さ", "GIF：シームレスループ、256色＋ディザ。MP4：60fpsのシームレスループ。ループの長さは速さの設定に合わせて変わります。"], "zh": ["运动速度", "闪光速度", "GIF：无缝循环，256 色＋抖动。MP4：60fps 无缝循环。循环长度会跟随速度设置变化。"], "ko": ["움직임 속도", "반짝임 속도", "GIF: 끊김 없는 루프, 256색 + 디더링. MP4: 60fps 끊김 없는 루프. 루프 길이는 속도 설정에 따라 바뀝니다."], "es": ["Velocidad de movimiento", "Velocidad del brillo", "GIF: bucle continuo, 256 colores con tramado. MP4: bucle continuo a 60 fps. La duración del bucle sigue los ajustes de velocidad."], "pt": ["Velocidade do movimento", "Velocidade do brilho", "GIF: loop contínuo, 256 cores com pontilhado. MP4: loop contínuo a 60 fps. A duração do loop segue os ajustes de velocidade."]})) Object.assign(I18N[lg], { motionSpeed: v[0], fxSpeed: v[1], exportHint: v[2] });
 let LANG = "en";
 try { LANG = localStorage.getItem("hcs.lang") || ""; } catch (e) { LANG = ""; }
 if (!I18N[LANG]) {
@@ -507,7 +510,7 @@ const PRESETS = [
 
 /* ============================== state ============================== */
 const S = {
-  preset: "auto", frame: "graded", name: "", caption: "", gradeText: "GEM MINT", gradeNum: "10", serial: "", rarity: "★★★", zoom: 1, posX: 0, posY: 0, fit: "cover",
+  preset: "auto", frame: "graded", name: "", caption: "", gradeText: "GEM MINT", gradeNum: "10", serial: "", rarity: "★★★", motionSpeed: 1, fxSpeed: 1, zoom: 1, posX: 0, posY: 0, fit: "cover",
   pattern: "auto", metal: "auto", signature: "auto", holo: 1, foilAmt: 1, glare: 1, sparkle: 1, particles: "auto", mood: null, moodAcc: null,
   autoFloat: !matchMedia("(prefers-reduced-motion: reduce)").matches
 };
@@ -655,7 +658,7 @@ const frontMat = new THREE.ShaderMaterial({
       uvS += (h22(vec2(sv.z*91.7, 3.1)) - .5)*.007*(1. - .7*subject)*min(uHolo, 1.5);
     }
     if (uPattern == 9) { // neon glitch: brief displaced bands + RGB split
-      float gs = floor(uPhase*16.); float gOn = step(.6, h12(vec2(gs, 3.)));
+      float gs = floor(uPhase*10.); float gOn = step(.6, h12(vec2(gs, 3.)));
       float gy = h12(vec2(gs, 4.))*uAspect; float gh = .012 + .05*h12(vec2(gs, 5.));
       float inB = gOn*step(abs(yn - gy), gh);
       uvS.x += inB*(h12(vec2(gs, 6.)) - .5)*.05*min(uHolo, 1.5);
@@ -737,8 +740,8 @@ const frontMat = new THREE.ShaderMaterial({
       col += (hue(sv.z + .25*nx + .18*ny)*.8 + .2)*fl*(.05 + .3*dark)*uHolo*subjK;
       float crack = 1. - smoothstep(0., .02 + pxw*5., sv.y);
       col += crack*(.22 + .9*bs + .3*fl)*vec3(.95, .98, 1.)*uSparkle*(1. - .5*subject);
-    } else if (uPattern == 7) { // lightning: new bolts 10x per loop, each flashes then fades
-      float slot = floor(uPhase*10.); float life = fract(uPhase*10.);
+    } else if (uPattern == 7) { // lightning: new bolts 6x per sparkle cycle, each flashes then fades
+      float slot = floor(uPhase*6.); float life = fract(uPhase*6.);
       vec3 bolts = vec3(0.);
       for (int k = 0; k < 3; k++) { float seed = slot*3. + float(k) + 1.;
         if (h12(vec2(seed, 0.)) < .3) continue;
@@ -1431,7 +1434,20 @@ function layoutTarget() {
 addEventListener("resize", resize);
 
 /* ============================== frame update (shared by live + export) ============================== */
-const LIVE_LOOP = 4.32;
+const LIVE_LOOP = 6.0;   // one auto-float orbit at motion speed 1×
+const FX_LOOP = 6.0;     // one sparkle cycle (lightning bursts, twinkles, pulses, glitches) at sparkle speed 1×
+const GIF_LOOP = 3.0, MP4_LOOP = 5.0; // exported orbit length at motion speed 1×
+// Exports must loop seamlessly, so an exported clip holds whole orbits (a) and whole sparkle cycles (b),
+// picked to match the speed sliders as closely as possible while keeping the clip short.
+function exportCycles() {
+  const ratio = (S.fxSpeed / FX_LOOP) / (S.motionSpeed / LIVE_LOOP);
+  let best = [1, 1, Infinity];
+  for (let a = 1; a <= 3; a++) for (let b = 1; b <= 8; b++) {
+    const cost = Math.abs(b / a - ratio) / ratio + .2 * (a - 1);
+    if (cost < best[2] - 1e-9) best = [a, b, cost];
+  }
+  return best;
+}
 const tmpV = new THREE.Vector3();
 function poseAt(phase, tx, ty, orbitW) {
   const ph = TAU * phase;
@@ -1504,13 +1520,14 @@ function drawScene(target) {
 }
 
 /* ============================== live loop ============================== */
-let phase = 0, lastT = performance.now(), frames = 0, ftAcc = 0, exporting = false;
+let phaseM = 0, phaseF = 0, lastT = performance.now(), frames = 0, ftAcc = 0, exporting = false;
 function tick(now) {
   requestAnimationFrame(tick);
   if (exporting) return;
   const dt = Math.min(.05, (now - lastT) / 1000); lastT = now;
-  phase = (phase + dt / LIVE_LOOP) % 1;
-  const ph = TAU * phase;
+  phaseM = (phaseM + dt * S.motionSpeed / LIVE_LOOP) % 1;  // orbit / float
+  phaseF = (phaseF + dt * S.fxSpeed / FX_LOOP) % 1;        // flashes, twinkles, particles
+  const ph = TAU * phaseM;
   const idleFor = now - input.last;
   const live = !!pointerDown || (input.active && ((input.mode === "gyro" && gyro.on && idleFor < 600) || (input.mode === "mouse" && idleFor < 3000) || (input.mode === "drag" && idleFor < 900)));
   let tx, ty, ow;
@@ -1523,8 +1540,8 @@ function tick(now) {
   view.offX += (view.offXT - view.offX) * (1 - Math.exp(-dt * 6)); view.offY += (view.offYT - view.offY) * (1 - Math.exp(-dt * 6));
   camera.position.set(0, 0, view.dist);
   setProjection(view.w / view.h, view.offX, view.offY);
-  const pose = poseAt(phase, tilt.x, tilt.y, tilt.w);
-  const g = updateUniforms(phase, pose, view.w * DPR, view.h * DPR);
+  const pose = poseAt(phaseM, tilt.x, tilt.y, tilt.w);
+  const g = updateUniforms(phaseF, pose, view.w * DPR, view.h * DPR);
   cardScreen.x = g.cx / DPR; cardScreen.y = view.h - g.cy / DPR; cardScreen.w = g.sz / DPR; cardScreen.h = g.sz * card.aspect / DPR;
   drawScene(null);
   // adaptive resolution for phones
@@ -1557,9 +1574,9 @@ function beginExport(w, h) {
   return rt;
 }
 function endExport(rt) { rt.dispose(); renderer.setRenderTarget(null); renderer.setPixelRatio(DPR); resize(); exporting = false; lastT = performance.now(); }
-function renderExportFrame(rt, w, h, ph, buf) {
-  const pose = poseAt(ph, Math.sin(TAU * ph), Math.cos(TAU * ph), 1);
-  updateUniforms(ph, pose, w, h);
+function renderExportFrame(rt, w, h, pm, pf, buf) {
+  const pose = poseAt(pm, Math.sin(TAU * pm), Math.cos(TAU * pm), 1);
+  updateUniforms(pf, pose, w, h);
   drawScene(rt);
   renderer.readRenderTargetPixels(rt, 0, 0, w, h, buf);
   // flip vertically in place
@@ -1627,14 +1644,17 @@ function ditherFS(rgba, w, h, pal, cache) {
 async function exportGIF() {
   const { GIFEncoder } = await import("https://cdn.jsdelivr.net/npm/gifenc@1.0.3/dist/gifenc.esm.js");
   const { w, h } = exportSize(+$("gifW").value);
-  const N = 48;
+  const [a, b] = exportCycles();
+  const T = a * GIF_LOOP / S.motionSpeed;                       // seconds in one seamless loop
+  const N = Math.max(24, Math.min(132, Math.round(T * 22.2)));   // ~22 fps (fewer frames per second for very long loops)
+  const cs = k => Math.round(k * T * 100 / N);                   // GIF delays are in 1/100 s
   setBusy(true, 0, t("rendering", { p: 0 }));
   await nextFrame();
   const rt = beginExport(w, h);
   const frames = [];
   try {
     for (let i = 0; i < N; i++) {
-      frames.push(renderExportFrame(rt, w, h, i / N, new Uint8Array(w * h * 4)));
+      frames.push(renderExportFrame(rt, w, h, (i / N * a) % 1, (i / N * b) % 1, new Uint8Array(w * h * 4)));
       if (i % 4 === 3) { setBusy(true, (i + 1) / N * .4, t("rendering", { p: Math.round((i + 1) / N * 100) })); await sleep(0); }
     }
   } finally { endExport(rt); }
@@ -1646,7 +1666,8 @@ async function exportGIF() {
   const gif = GIFEncoder();
   for (let i = 0; i < N; i++) {
     const idx = ditherFS(frames[i], w, h, pal, cache);
-    gif.writeFrame(idx, w, h, i === 0 ? { palette: pal, delay: 40, repeat: 0 } : { delay: i % 2 ? 50 : 40 });
+    const delay = (cs(i + 1) - cs(i)) * 10;
+    gif.writeFrame(idx, w, h, i === 0 ? { palette: pal, delay, repeat: 0 } : { delay });
     if (i % 3 === 2) { setBusy(true, .4 + (i + 1) / N * .6, t("encoding", { p: Math.round((i + 1) / N * 100) })); await sleep(0); }
   }
   gif.finish();
@@ -1657,7 +1678,8 @@ async function exportMP4() {
   if (typeof VideoEncoder === "undefined") { toast(t("mp4No"), 4000); return; }
   const { Muxer, ArrayBufferTarget } = await import("https://cdn.jsdelivr.net/npm/mp4-muxer@5.1.3/build/mp4-muxer.mjs");
   const { w, h } = exportSize(+$("mp4W").value);
-  const fps = 60, loopSec = 3.2, loops = 2, N = Math.round(fps * loopSec);
+  const [a, b] = exportCycles();
+  const fps = 60, loopSec = a * MP4_LOOP / S.motionSpeed, loops = loopSec <= 6 ? 2 : 1, N = Math.round(fps * loopSec);
   let config = null;
   for (const codec of ["avc1.640033", "avc1.64002a", "avc1.4d0033", "avc1.4d002a", "avc1.42003e", "avc1.42002a"]) {
     const c = { codec, width: w, height: h, bitrate: Math.round(w * h * fps * .14), framerate: fps };
@@ -1675,7 +1697,8 @@ async function exportMP4() {
   try {
     for (let i = 0; i < N * loops; i++) {
       if (encErr) throw encErr;
-      renderExportFrame(rt, w, h, (i % N) / N, buf);
+      const tm = (i % N) / N;
+      renderExportFrame(rt, w, h, (tm * a) % 1, (tm * b) % 1, buf);
       const vf = new VideoFrame(buf, { format: "RGBA", codedWidth: w, codedHeight: h, timestamp: Math.round(i * 1e6 / fps), duration: Math.round(1e6 / fps) });
       enc.encode(vf, { keyFrame: i % fps === 0 }); vf.close();
       while (enc.encodeQueueSize > 6) await sleep(2);
@@ -1788,6 +1811,7 @@ for (const [id, key] of [["cgradeT", "gradeText"], ["cgradeN", "gradeNum"], ["cs
 }
 $("particles").addEventListener("change", e => { S.particles = e.target.value; applyLook(); });
 $("autoFloat").addEventListener("change", e => { S.autoFloat = e.target.checked; });
+for (const id of ["motionSpeed", "fxSpeed"]) $(id).addEventListener("input", e => { S[id] = +e.target.value; $(id + "V").textContent = S[id].toFixed(2) + "×"; });
 $("uploadBtn").addEventListener("click", () => $("file").click());
 $("file").addEventListener("change", e => { loadFile(e.target.files[0]); e.target.value = ""; });
 $("sampleBtn").addEventListener("click", () => loadSample());
